@@ -16,6 +16,7 @@
       "version": "1.0.0",
       "source": {
         "source": "git-subdir",
+        "url": "https://github.com/calibermind-official/skills_private.git",
         "path": "."
       }
     }
