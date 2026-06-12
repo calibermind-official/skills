@@ -11,7 +11,10 @@
   "plugins": [
     {
       "name": "calibermind-analyst",
-      "source": ".",
+      "source": {
+        "source": "github",
+        "repo": "calibermind-official/skills_private"
+      },
       "description": "Answer B2B marketing and sales questions by querying CaliberMind's BigQuery data model",
       "version": "1.0.0",
       "author": {
