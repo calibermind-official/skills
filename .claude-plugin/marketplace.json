@@ -1,0 +1,23 @@
+{
+  "name": "calibermind-skills",
+  "owner": {
+    "name": "Caliber UX, Inc.",
+    "email": "support@calibermind.com",
+    "url": "https://github.com/calibermind-official"
+  },
+  "metadata": {
+    "description": "CaliberMind AI agent skills and MCP server configuration",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "calibermind-analyst",
+      "description": "Answer B2B marketing and sales questions by querying CaliberMind's BigQuery data model",
+      "version": "1.0.0",
+      "source": {
+        "source": "directory",
+        "path": "."
+      }
+    }
+  ]
+}
