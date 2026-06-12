@@ -9,15 +9,32 @@ npx skills add calibermind-official/skills
 Select the skills you need from the wizard. Skills are installed to your
 agent's directory (e.g., `.claude/skills/` for Claude Code).
 
-### Claude Code Plugin
+## Claude Code Plugin
+
+### Install from Marketplace
+
+Claude Code's plugin sync requires a private or internal repository.
+To install from the marketplace:
+
+1. Fork this repository to a **private repo** under your GitHub organization
+2. Open **Claude Code → Settings → Plugins**
+3. Click **Sync from GitHub**
+4. Select your private fork from the repository list
+5. Click **Create**
+
+### Install from Zip
+
+1. Download the repository as a `.zip` file from GitHub
+2. Open **Claude Code → Settings → Plugins**
+3. Click **Upload Plugin** and select the `.zip` file
+
+If downloading from macOS Finder, use the terminal instead to avoid extra
+metadata files:
 
 ```bash
-claude --plugin-dir /path/to/skills
+cd /path/to/skills
+zip -r calibermind-skills.zip . -x '*.DS_Store' -x '__MACOSX/*' -x '.git/*'
 ```
-
-This loads both the analyst skill and the
-[CaliberMind MCP server](https://docs.calibermind.com/agent-cal/calibermind-mcp-server)
-configuration automatically.
 
 ## Skills
 
@@ -40,14 +57,15 @@ ln -s /path/to/skills/.claude/skills/calibermind-analyst /path/to/your-project/.
 
 ```
 .claude-plugin/
-  └── plugin.json                   # Plugin manifest (Claude Code)
+  ├── plugin.json                   # Plugin manifest (Claude Code)
+  └── marketplace.json              # Marketplace catalog
 .claude/skills/                     # Canonical skill source (npx skills add)
   └── calibermind-analyst/
       ├── SKILL.md                  # Skill instructions (frontmatter + markdown)
       └── references/
           └── sql-examples.md       # Worked BigQuery SQL patterns
-skills/                             # Plugin skill discovery (symlinks)
-  └── calibermind-analyst/ → .claude/skills/calibermind-analyst/
+skills/                             # Plugin skill discovery (copies)
+  └── calibermind-analyst/
 .mcp.json                           # Bundled MCP server config
 ```
 

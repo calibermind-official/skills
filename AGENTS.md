@@ -6,12 +6,13 @@ This repository contains reusable AI agent skills for CaliberMind.
 
 ```
 .claude-plugin/
-  └── plugin.json          # Plugin manifest (Claude Code)
+  ├── plugin.json          # Plugin manifest (Claude Code)
+  └── marketplace.json     # Marketplace catalog
 .claude/skills/            # Canonical skills (one subdirectory per skill)
   └── <skill-name>/
       ├── SKILL.md         # Required — frontmatter + instructions
       └── references/      # Optional — supplementary docs, examples
-skills/                    # Plugin skill discovery (symlinks → .claude/skills/)
+skills/                    # Plugin skill discovery (copies of .claude/skills/)
   └── <skill-name>/
 .mcp.json                  # Bundled MCP server config
 ```
@@ -23,10 +24,9 @@ skills/                    # Plugin skill discovery (symlinks → .claude/skills
 
 ## Usage
 
-Install via `npx skills add calibermind-official/skills`, or load as a Claude
-Code plugin with `claude --plugin-dir /path/to/skills`. Skills are
-auto-discovered from `.claude/skills/*/SKILL.md` (npx) or `skills/*/SKILL.md`
-(plugin mode).
+Install via `npx skills add calibermind-official/skills`, or install as a Claude
+Code plugin via marketplace sync or zip upload. Skills are auto-discovered from
+`.claude/skills/*/SKILL.md` (npx) or `skills/*/SKILL.md` (plugin mode).
 
 ## Conventions
 
