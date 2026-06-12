@@ -20,7 +20,7 @@ and uploading it in **Claude Code → Settings → Plugins → Upload Plugin**.
 ### Alternative Installation
 
 For organizations with strict security requirements or air-gapped environments,
-the plugin can also be installed via private GitHub sync or zip upload.
+the plugin can also be installed via private GitHub sync.
 
 <details>
 <summary>Install via private GitHub sync</summary>
