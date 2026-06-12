@@ -15,7 +15,7 @@
       "description": "Answer B2B marketing and sales questions by querying CaliberMind's BigQuery data model",
       "version": "1.0.0",
       "source": {
-        "source": "directory",
+        "source": "git-subdir",
         "path": "."
       }
     }
