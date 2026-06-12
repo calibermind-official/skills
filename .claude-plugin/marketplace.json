@@ -1,8 +1,7 @@
 {
   "name": "calibermind-skills",
   "owner": {
-    "name": "Caliber UX, Inc.",
-    "email": "support@calibermind.com",
+    "name": "calibermind-official",
     "url": "https://github.com/calibermind-official"
   },
   "metadata": {
@@ -12,13 +11,18 @@
   "plugins": [
     {
       "name": "calibermind-analyst",
+      "source": ".",
       "description": "Answer B2B marketing and sales questions by querying CaliberMind's BigQuery data model",
       "version": "1.0.0",
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/calibermind-official/skills_private.git",
-        "path": "."
-      }
+      "author": {
+        "name": "calibermind-official",
+        "url": "https://github.com/calibermind-official"
+      },
+      "homepage": "https://github.com/calibermind-official/skills",
+      "repository": "https://github.com/calibermind-official/skills",
+      "license": "MIT",
+      "keywords": ["b2b", "marketing", "analytics", "attribution", "bigquery"],
+      "category": "analytics"
     }
   ]
 }
