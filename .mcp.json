@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "calibermind": {
-      "type": "streamable-http",
+      "type": "http",
       "url": "https://gateway.calibermind.com/v1/mcp"
     }
   }
