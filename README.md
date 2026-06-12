@@ -11,30 +11,36 @@ agent's directory (e.g., `.claude/skills/` for Claude Code).
 
 ## Claude Code Plugin
 
-### Install from Marketplace
+The Claude community marketplace listing is coming soon.
 
-Claude Code's plugin sync requires a private or internal repository.
-To install from the marketplace:
+In the meantime, install by downloading the
+[latest zip](https://github.com/calibermind-official/skills/archive/refs/heads/main.zip)
+and uploading it in **Claude Code → Settings → Plugins → Upload Plugin**.
 
-1. Fork this repository to a **private repo** under your GitHub organization
-2. Open **Claude Code → Settings → Plugins**
-3. Click **Sync from GitHub**
-4. Select your private fork from the repository list
-5. Click **Create**
+### Alternative Installation
 
-### Install from Zip
+For organizations with strict security requirements or air-gapped environments,
+the plugin can also be installed via private GitHub sync or zip upload.
 
-1. Download the repository as a `.zip` file from GitHub
-2. Open **Claude Code → Settings → Plugins**
-3. Click **Upload Plugin** and select the `.zip` file
+<details>
+<summary>Install via private GitHub sync</summary>
 
-If downloading from macOS Finder, use the terminal instead to avoid extra
-metadata files:
+1. Create a **new private repo** under your GitHub organization
+2. Clone this repository and push it to your private repo:
+   ```bash
+   git clone https://github.com/calibermind-official/skills.git
+   cd skills
+   git remote add private git@github.com:your-org/your-private-repo.git
+   git push private main
+   ```
+3. Open **Claude Code → Settings → Plugins**
+4. Click **Sync from GitHub**
+5. Select your private repo from the repository list
+6. Click **Create**
 
-```bash
-cd /path/to/skills
-zip -r calibermind-skills.zip . -x '*.DS_Store' -x '__MACOSX/*' -x '.git/*'
-```
+</details>
+
+
 
 ## Skills
 
