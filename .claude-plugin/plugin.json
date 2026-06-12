@@ -1,0 +1,9 @@
+{
+  "name": "calibermind",
+  "version": "1.0.0",
+  "description": "CaliberMind B2B analytics skills and MCP server configuration",
+  "author": {
+    "name": "CaliberMind",
+    "url": "https://calibermind.com"
+  }
+}
