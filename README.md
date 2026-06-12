@@ -1,4 +1,4 @@
-# Agent Skills
+# CaliberMind Skills for Agents
 
 ## Quick Start
 
@@ -39,8 +39,6 @@ the plugin can also be installed via private GitHub sync or zip upload.
 6. Click **Create**
 
 </details>
-
-
 
 ## Skills
 
