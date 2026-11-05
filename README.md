@@ -45,6 +45,7 @@ the plugin can also be installed via private GitHub sync.
 | Skill                                                      | Description                                                                                                                                                                            |
 | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [calibermind-analyst](.claude/skills/calibermind-analyst/) | Answer B2B marketing and sales questions by querying CaliberMind's BigQuery data model. Covers attribution, pipeline, campaigns, ad ROI, leads, accounts, funnels, and buyer journeys. |
+| [opportunity-buyer-chart](.claude/skills/opportunity-buyer-chart/) | Build an Opportunity Buyer Chart for one opportunity: buying group, marketing and sales touches, intent, milestones, and key moments. |
 
 ## Manual Installation
 
@@ -64,12 +65,16 @@ ln -s /path/to/skills/.claude/skills/calibermind-analyst /path/to/your-project/.
   ├── plugin.json                   # Plugin manifest (Claude Code)
   └── marketplace.json              # Marketplace catalog
 .claude/skills/                     # Canonical skill source (npx skills add)
-  └── calibermind-analyst/
-      ├── SKILL.md                  # Skill instructions (frontmatter + markdown)
-      └── references/
-          └── sql-examples.md       # Worked BigQuery SQL patterns
+  ├── calibermind-analyst/
+  │   ├── SKILL.md                  # Skill instructions (frontmatter + markdown)
+  │   └── references/
+  │       └── sql-examples.md       # Worked BigQuery SQL patterns
+  └── opportunity-buyer-chart/
+      ├── SKILL.md
+      └── references/               # Queries, classification, content, chart spec, theme
 skills/                             # Plugin skill discovery (copies)
-  └── calibermind-analyst/
+  ├── calibermind-analyst/
+  └── opportunity-buyer-chart/
 .mcp.json                           # Bundled MCP server config
 ```
 
