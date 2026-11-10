@@ -21,6 +21,9 @@ skills/                    # Plugin skill discovery (copies of .claude/skills/)
 
 - **calibermind-analyst** — Answer B2B marketing and sales questions by querying
   CaliberMind's BigQuery data model via the CaliberMind MCP connector.
+- **opportunity-buyer-chart** — Build an Opportunity Buyer Chart for one
+  opportunity: buying group, marketing and sales touches, intent, milestones,
+  and key moments.
 
 ## Usage
 

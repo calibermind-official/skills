@@ -45,17 +45,52 @@ the plugin can also be installed via private GitHub sync.
 | Skill                                                      | Description                                                                                                                                                                            |
 | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [calibermind-analyst](.claude/skills/calibermind-analyst/) | Answer B2B marketing and sales questions by querying CaliberMind's BigQuery data model. Covers attribution, pipeline, campaigns, ad ROI, leads, accounts, funnels, and buyer journeys. |
+| [opportunity-buyer-chart](.claude/skills/opportunity-buyer-chart/) | Build an Opportunity Buyer Chart for one opportunity: buying group, marketing and sales touches, intent, milestones, and key moments. |
 
 ## Manual Installation
 
 ```bash
-# Clone and copy the skill you need
+# Clone and copy the skill you need (replace <skill-name>, e.g. opportunity-buyer-chart)
 git clone https://github.com/calibermind-official/skills.git
-cp -r skills/.claude/skills/calibermind-analyst your-project/.claude/skills/
+cp -r skills/.claude/skills/<skill-name> your-project/.claude/skills/
 
-# Or use symlinks for multi-project setups
-ln -s /path/to/skills/.claude/skills/calibermind-analyst /path/to/your-project/.claude/skills/calibermind-analyst
+# Or use symlinks for multi-project setups (updates arrive with git pull)
+ln -s /path/to/skills/.claude/skills/<skill-name> /path/to/your-project/.claude/skills/<skill-name>
 ```
+
+To make a skill available in every project, copy or link it into `~/.claude/skills/` instead.
+
+## Claude.ai
+
+Skills can also be used in the Claude web and desktop apps. Each skill is uploaded on its own as
+a zip of its folder:
+
+```bash
+git clone https://github.com/calibermind-official/skills.git
+cd skills/skills
+zip -r <skill-name>.zip <skill-name>
+```
+
+- **For yourself:** in Claude, go to **Customize → Skills**, click **+**, then
+  **Create skill → Upload a skill**, and choose the zip.
+- **For your whole organization:** an Owner uploads the zip in
+  **Organization settings → Plugins & skills**. It then appears for every member.
+
+If **Skills** is missing from Customize, an Owner needs to enable **Code execution and file
+creation** and **Skills** under **Organization settings → Plugins & skills → Policy**.
+
+## Updating
+
+Installed skills do not update on their own. To get new or changed skills:
+
+| Installed with | How to update |
+|---|---|
+| `npx skills add` | Run `npx skills add calibermind-official/skills` again and select the skills you want. |
+| Plugin zip upload | Download the [latest zip](https://github.com/calibermind-official/skills/archive/refs/heads/main.zip) and upload it again. |
+| Private GitHub sync | Pull from this repo and push to your private repo: `git pull origin main && git push private main`. |
+| Manual copy | `git pull` in your clone, then copy the skill folder again. |
+| Manual symlink | `git pull` in your clone. |
+| Claude.ai upload | Build a new zip and upload it again, replacing the old skill. An Owner does this for organization-provisioned skills. |
 
 ## Repository Structure
 
@@ -64,12 +99,16 @@ ln -s /path/to/skills/.claude/skills/calibermind-analyst /path/to/your-project/.
   ├── plugin.json                   # Plugin manifest (Claude Code)
   └── marketplace.json              # Marketplace catalog
 .claude/skills/                     # Canonical skill source (npx skills add)
-  └── calibermind-analyst/
-      ├── SKILL.md                  # Skill instructions (frontmatter + markdown)
-      └── references/
-          └── sql-examples.md       # Worked BigQuery SQL patterns
+  ├── calibermind-analyst/
+  │   ├── SKILL.md                  # Skill instructions (frontmatter + markdown)
+  │   └── references/
+  │       └── sql-examples.md       # Worked BigQuery SQL patterns
+  └── opportunity-buyer-chart/
+      ├── SKILL.md
+      └── references/               # Queries, classification, content, chart spec, theme
 skills/                             # Plugin skill discovery (copies)
-  └── calibermind-analyst/
+  ├── calibermind-analyst/
+  └── opportunity-buyer-chart/
 .mcp.json                           # Bundled MCP server config
 ```
 
