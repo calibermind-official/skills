@@ -23,7 +23,7 @@ skills/                    # Plugin skill discovery (copies of .claude/skills/)
   CaliberMind's BigQuery data model via the CaliberMind MCP connector.
 - **opportunity-buyer-chart** — Build an Opportunity Buyer Chart for one
   opportunity: buying group, marketing and sales touches, intent, milestones,
-  and key moments. Instructions only, no scripts.
+  and key moments.
 
 ## Usage
 
