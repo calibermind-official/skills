@@ -11,11 +11,18 @@ agent's directory (e.g., `.claude/skills/` for Claude Code).
 
 ## Claude Code Plugin
 
-The Claude community marketplace listing is coming soon.
+Add the CaliberMind marketplace and install the plugin:
 
-In the meantime, install by downloading the
+```
+/plugin marketplace add calibermind-official/skills
+/plugin install calibermind@calibermind-skills
+```
+
+Run `/plugin marketplace update calibermind-skills` to pick up new versions.
+
+You can also download the
 [latest zip](https://github.com/calibermind-official/skills/archive/refs/heads/main.zip)
-and uploading it in **Claude Code → Settings → Plugins → Upload Plugin**.
+and upload it in **Claude Code → Settings → Plugins → Upload Plugin**.
 
 ### Alternative Installation
 
