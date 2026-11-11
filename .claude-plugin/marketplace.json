@@ -6,25 +6,22 @@
   },
   "metadata": {
     "description": "CaliberMind AI agent skills and MCP server configuration",
-    "version": "1.1.0"
+    "version": "1.1.1"
   },
   "plugins": [
     {
-      "name": "calibermind-analyst",
-      "source": {
-        "source": "github",
-        "repo": "calibermind-official/skills_private"
-      },
-      "description": "Answer B2B marketing and sales questions by querying CaliberMind's BigQuery data model",
-      "version": "1.1.0",
+      "name": "calibermind",
+      "source": "./",
+      "description": "CaliberMind B2B analytics: query attribution, pipeline, campaigns and buyer journeys, and build Opportunity Buyer Charts",
+      "version": "1.1.1",
       "author": {
-        "name": "calibermind-official",
-        "url": "https://github.com/calibermind-official"
+        "name": "CaliberMind",
+        "url": "https://calibermind.com"
       },
       "homepage": "https://github.com/calibermind-official/skills",
       "repository": "https://github.com/calibermind-official/skills",
       "license": "MIT",
-      "keywords": ["b2b", "marketing", "analytics", "attribution", "bigquery"],
+      "keywords": ["b2b", "marketing", "analytics", "attribution", "bigquery", "buyer-journey", "opportunity"],
       "category": "analytics"
     }
   ]
