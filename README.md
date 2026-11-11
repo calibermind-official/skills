@@ -9,6 +9,45 @@ npx skills add calibermind-official/skills
 Select the skills you need from the wizard. Skills are installed to your
 agent's directory (e.g., `.claude/skills/` for Claude Code).
 
+## Claude.ai
+
+Install the CaliberMind plugin in the Claude web and desktop apps. It adds both skills and
+offers the CaliberMind MCP server as a connector.
+
+- **For yourself:** go to **Customize → Plugins → Add → Add marketplace**, enter
+  `https://github.com/calibermind-official/skills`, then install **calibermind**.
+- **For your whole organization:** an Owner adds the same repo under
+  **Organization settings → Plugins & skills → Marketplaces** and sets **calibermind** to
+  **Available to install**, **Installed by default**, or **Required**.
+
+When adding the repo URL, turn on **Sync automatically** so new versions are picked up whenever
+this repo changes.
+
+You can also download the
+[latest zip](https://github.com/calibermind-official/skills/archive/refs/heads/main.zip)
+and upload it in **Customize → Plugins → Add → Upload plugin**. Uploaded plugins don't sync, so
+upload a new zip to update.
+
+After installing, open the **CaliberMind** connector and click **Connect** to sign in.
+
+### Upload individual skills
+
+To upload skills without the plugin, zip each skill folder on its own:
+
+```bash
+git clone https://github.com/calibermind-official/skills.git
+cd skills/skills
+zip -r <skill-name>.zip <skill-name>
+```
+
+- **For yourself:** in Claude, go to **Customize → Skills**, click **+**, then
+  **Create skill → Upload a skill**, and choose the zip.
+- **For your whole organization:** an Owner uploads the zip in
+  **Organization settings → Plugins & skills**. It then appears for every member.
+
+If **Skills** is missing from Customize, an Owner needs to enable **Code execution and file
+creation** and **Skills** under **Organization settings → Plugins & skills → Policy**.
+
 ## Claude Code Plugin
 
 Add the CaliberMind marketplace and install the plugin:
@@ -47,13 +86,6 @@ the plugin can also be installed via private GitHub sync.
 
 </details>
 
-## Skills
-
-| Skill                                                      | Description                                                                                                                                                                            |
-| ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [calibermind-analyst](.claude/skills/calibermind-analyst/) | Answer B2B marketing and sales questions by querying CaliberMind's BigQuery data model. Covers attribution, pipeline, campaigns, ad ROI, leads, accounts, funnels, and buyer journeys. |
-| [opportunity-buyer-chart](.claude/skills/opportunity-buyer-chart/) | Build an Opportunity Buyer Chart for one opportunity: buying group, marketing and sales touches, intent, milestones, and key moments. |
-
 ## Manual Installation
 
 ```bash
@@ -67,24 +99,6 @@ ln -s /path/to/skills/.claude/skills/<skill-name> /path/to/your-project/.claude/
 
 To make a skill available in every project, copy or link it into `~/.claude/skills/` instead.
 
-## Claude.ai
-
-Skills can also be used in the Claude web and desktop apps. Each skill is uploaded on its own as
-a zip of its folder:
-
-```bash
-git clone https://github.com/calibermind-official/skills.git
-cd skills/skills
-zip -r <skill-name>.zip <skill-name>
-```
-
-- **For yourself:** in Claude, go to **Customize → Skills**, click **+**, then
-  **Create skill → Upload a skill**, and choose the zip.
-- **For your whole organization:** an Owner uploads the zip in
-  **Organization settings → Plugins & skills**. It then appears for every member.
-
-If **Skills** is missing from Customize, an Owner needs to enable **Code execution and file
-creation** and **Skills** under **Organization settings → Plugins & skills → Policy**.
 
 ## Updating
 
@@ -93,11 +107,19 @@ Installed skills do not update on their own. To get new or changed skills:
 | Installed with | How to update |
 |---|---|
 | `npx skills add` | Run `npx skills add calibermind-official/skills` again and select the skills you want. |
-| Plugin zip upload | Download the [latest zip](https://github.com/calibermind-official/skills/archive/refs/heads/main.zip) and upload it again. |
+| Plugin zip upload (Claude Code or Claude.ai) | Download the [latest zip](https://github.com/calibermind-official/skills/archive/refs/heads/main.zip) and upload it again. |
 | Private GitHub sync | Pull from this repo and push to your private repo: `git pull origin main && git push private main`. |
 | Manual copy | `git pull` in your clone, then copy the skill folder again. |
 | Manual symlink | `git pull` in your clone. |
-| Claude.ai upload | Build a new zip and upload it again, replacing the old skill. An Owner does this for organization-provisioned skills. |
+| Claude.ai marketplace | Automatic if **Sync automatically** was turned on when adding the marketplace. Otherwise, sync the marketplace manually from the same settings page. |
+| Claude.ai skill upload | Build a new zip and upload it again, replacing the old skill. An Owner does this for organization-provisioned skills. |
+
+## Skills
+
+| Skill                                                      | Description                                                                                                                                                                            |
+| ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [calibermind-analyst](.claude/skills/calibermind-analyst/) | Answer B2B marketing and sales questions by querying CaliberMind's BigQuery data model. Covers attribution, pipeline, campaigns, ad ROI, leads, accounts, funnels, and buyer journeys. |
+| [opportunity-buyer-chart](.claude/skills/opportunity-buyer-chart/) | Build an Opportunity Buyer Chart for one opportunity: buying group, marketing and sales touches, intent, milestones, and key moments. |
 
 ## Repository Structure
 
